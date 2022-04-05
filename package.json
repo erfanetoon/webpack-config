@@ -1,0 +1,22 @@
+{
+  "name": "webpack-project",
+  "version": "1.0.0",
+  "description": "webpack config project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erfanetoon/webpack-config.git"
+  },
+  "author": "erfanetoon",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
