@@ -19,11 +19,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: { loader: "babel-loader" },
-      },
-      {
         test: /\.(s[ac]|c)ss$/,
         exclude: /node_modules/,
         use: [
@@ -33,10 +28,17 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.(j|t)sx?$/,
+        exclude: /node_modules/,
+        use: { loader: "babel-loader" },
+      },
     ],
   },
 
   plugins: [new MiniCssExtractPlugin()],
+
+  resolve: { extensions: [".js", ".jsx"] },
 
   devtool,
 
