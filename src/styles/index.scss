@@ -1,1 +1,7 @@
 @use "global";
+
+.logo {
+  height: 100px;
+  width: 100px;
+  background: url("../../public/images/persepolis.png") no-repeat 100% 100%;
+}

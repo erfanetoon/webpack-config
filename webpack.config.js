@@ -6,7 +6,7 @@ let target = "web";
 
 if (process.env.NODE_ENV === "production") {
   mode = "production";
-  devtool = "";
+  devtool = false;
   target = "browserslist";
 }
 
@@ -16,13 +16,34 @@ module.exports = {
   mode,
   target,
 
+  output: {
+    filename: "[name].[contenthash].bundle.js",
+    clean: true,
+    publicPath: "./public",
+  },
+
   module: {
     rules: [
       {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        type: "asset",
+        generator: {
+          filename: "assets/images/[hash][ext]",
+        },
+      },
+      {
         test: /\.(s[ac]|c)ss$/,
         exclude: /node_modules/,
+        generator: {
+          filename: "styles/[name][ext]",
+        },
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: "",
+            },
+          },
           "css-loader",
           "postcss-loader",
           "sass-loader",
@@ -36,7 +57,11 @@ module.exports = {
     ],
   },
 
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+    }),
+  ],
 
   resolve: { extensions: [".js", ".jsx"] },
 

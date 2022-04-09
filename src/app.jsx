@@ -6,6 +6,8 @@ const App = () => {
   return (
     <div>
       <Header />
+
+      <div className="logo"></div>
       <main>main</main>
       <Footer />
     </div>

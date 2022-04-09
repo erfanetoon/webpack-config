@@ -6,6 +6,8 @@ const Footer = () => {
   return (
     <footer onClick={() => setIsOpen(!isOpen)}>
       {isOpen ? "true" : "false"}
+
+      <img src="../../public/images/persepolis.png" />
     </footer>
   );
 };
